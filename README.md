@@ -8,4 +8,9 @@ The following are available to download:
 4) Scoring scripts to calculate performance measures (e.g., choice of high-fat foods)
 
 When using the task, please reference this repository and the following publications:
-# Food-Choice
+
+Steinglass, J., Foerde, K., Kostro, K., Shohamy, D., & Walsh, B. T. (2015). Restrictive food intake as a choice—A paradigm for study. International Journal of Eating Disorders, 48(1), 59-66.
+
+Foerde, K., Steinglass, J. E., Shohamy, D., & Walsh, B. T. (2015). Neural mechanisms supporting maladaptive food choices in anorexia nervosa. Nature neuroscience, 18(11), 1571-1573.
+
+
