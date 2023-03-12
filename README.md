@@ -8,4 +8,4 @@ The following are available to download:
 4) Scoring scripts to calculate performance measures (e.g., choice of high-fat foods)
 
 When using the task, please reference this repository and the following publications:
-# Food-Choice
+
