@@ -1,0 +1,7 @@
+,food,image,fat,available,trialstart,hilo,Null
+0,stimuli/Hershey Kisses.jpg,34,1,1,0,hi,4
+1,stimuli/Pretzels.jpg,50,0,1,5,lo,4
+2,stimuli/american cheese.jpg,3,1,1,10,hi,1
+3,stimuli/green beans.jpg,31,0,1,18,lo,2
+4,stimuli/strawberries.jpg,66,0,1,26,lo,1
+5,stimuli/soup with spoon.jpg,62,0,1,31,lo,1

@@ -1,0 +1,77 @@
+,food,image,fat,available,trialstart,hilo,Null
+0,stimuli/Whole milk.jpg,73,1,1,0,hi,1
+1,stimuli/strawberries.jpg,66,0,1,5,lo,1
+2,stimuli/air popcorn.jpg,2,0,1,14,lo,2
+3,stimuli/cupcakes am.jpg,23,1,1,20,hi,5
+4,stimuli/cherry tomato.jpg,18,0,1,25,lo,1
+5,stimuli/broccoli cauliflower.jpg,12,0,1,33,lo,1
+6,stimuli/raisin bran w milk.jpg,51,0,1,38,lo,4
+7,stimuli/avacado.jpg,5,1,0,47,hi,2
+8,stimuli/mac & cheese.jpg,40,1,1,54,hi,1
+9,stimuli/ritz.jpg,57,1,1,59,hi,4
+10,stimuli/american cheese.jpg,3,1,1,64,hi,1
+11,stimuli/celery and carrot sticks.jpg,15,0,1,69,lo,1
+12,stimuli/Hershey Kisses.jpg,34,1,1,76,hi,5
+13,stimuli/banana.jpg,11,0,1,82,lo,4
+14,stimuli/ice cream sundae 002.jpg,36,1,1,87,hi,3
+15,stimuli/bagel plain.jpg,8,0,1,98,lo,1
+16,stimuli/corn cob.jpg,21,0,0,103,lo,1
+17,stimuli/hotdog w must.jpg,35,1,1,113,hi,1
+18,stimuli/froot loops w milk.jpg,28,0,1,118,lo,4
+19,stimuli/french fries.jpg,26,1,1,124,hi,1
+20,stimuli/grilled chicken strips.jpg,33,0,1,129,lo,2
+21,stimuli/rigatoni.jpg,56,0,0,136,lo,1
+22,stimuli/salad w chicken.jpg,58,1,1,141,hi,1
+23,stimuli/doughnuts.jpg,24,1,1,146,hi,3
+24,stimuli/Pretzels.jpg,50,0,1,153,lo,7
+25,stimuli/mashed potato.jpg,41,1,1,161,hi,2
+26,stimuli/apple slices.jpg,4,0,1,167,lo,4
+27,stimuli/chicken nuggets2.jpg,19,1,1,180,hi,1
+28,stimuli/Grapes.jpg,30,0,1,185,lo,1
+29,stimuli/yogurt pretzels.jpg,76,1,1,190,hi,7
+30,stimuli/eggs.jpg,25,1,1,197,hi,1
+31,stimuli/Cheese nachos.jpg,16,1,0,204,hi,6
+32,stimuli/bagel and cc.jpg,7,1,1,209,hi,1
+33,stimuli/raisins.jpg,52,0,1,214,lo,2
+34,stimuli/mini muffins.jpg,42,1,1,219,hi,2
+35,stimuli/lollipops.jpg,38,0,1,226,lo,2
+36,stimuli/cucumber slices.jpg,22,0,1,231,lo,1
+37,stimuli/fried eggs.jpg,27,1,1,237,hi,1
+38,stimuli/seaweed.jpg,60,0,1,242,lo,1
+39,stimuli/yellow popcorn.jpg,74,1,1,247,hi,3
+40,stimuli/reeses.jpg,53,1,1,253,hi,1
+41,stimuli/pizza.jpg,49,1,1,258,hi,1
+42,stimuli/brownie.jpg,13,1,1,263,hi,3
+43,stimuli/trail mix.jpg,70,1,1,271,hi,4
+44,stimuli/rigatoni and sauce.jpg,55,0,0,276,lo,3
+45,stimuli/saltines.jpg,59,0,1,284,lo,1
+46,stimuli/cookies.jpg,20,1,1,289,hi,2
+47,stimuli/steak.jpg,65,1,0,294,hi,9
+48,stimuli/yogurt no spoon.jpg,75,0,1,302,lo,2
+49,stimuli/turkey sandwich.jpg,72,0,1,308,lo,1
+50,stimuli/soy chips.jpg,64,0,0,313,lo,5
+51,stimuli/Tribe humus pita.jpg,71,1,1,324,hi,1
+52,stimuli/tacos.jpg,69,1,0,332,hi,1
+53,stimuli/mozarella sticks.jpg,43,1,1,337,hi,3
+54,stimuli/green beans.jpg,31,0,1,343,lo,1
+55,stimuli/sour patch.jpg,63,0,1,349,lo,2
+56,stimuli/soup with spoon.jpg,62,0,1,354,lo,3
+57,stimuli/pickles.jpg,48,0,1,359,lo,3
+58,stimuli/PB.jpg,46,1,1,366,hi,3
+59,stimuli/1%milk.jpg,1,0,1,371,lo,1
+60,stimuli/Skim milk.jpg,61,0,1,377,lo,1
+61,stimuli/rice cakes.jpg,54,0,1,382,lo,6
+62,stimuli/mushrooms.jpg,44,0,1,391,lo,1
+63,stimuli/burger.jpg,14,1,0,396,hi,1
+64,stimuli/peaches.jpg,47,0,0,402,lo,2
+65,stimuli/kiwi.jpg,37,0,0,409,lo,1
+66,stimuli/sushi w_condiments.jpg,68,0,1,416,lo,2
+67,stimuli/cherries.jpg,17,0,0,421,lo,6
+68,stimuli/baked potato.jpg,10,0,0,426,lo,1
+69,stimuli/grilled cheese.jpg,32,1,1,436,hi,1
+70,stimuli/granola w milk.jpg,29,1,1,441,hi,1
+71,stimuli/baby cheese.jpg,6,1,1,447,hi,3
+72,stimuli/m_and_m.jpg,39,1,1,452,hi,1
+73,stimuli/baguette oil.jpg,9,1,1,458,hi,2
+74,stimuli/orange slices.jpg,45,0,1,468,lo,3
+75,stimuli/string cheese.jpg,67,1,1,473,hi,1
