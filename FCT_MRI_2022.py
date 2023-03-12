@@ -1,5 +1,5 @@
 ### Food Choice Task Matlab Version(2016) by Dr. Karin Foerde and Dr. Joanna Steinglass
-### Food Choice Python version is created on Nov.18, 2022
+### Food Choice Python version is created on Sep 3rd, 2022
 ### by Serena J. Gu (RA at Columbia Center for Eating Disorders)
 from fct_library import *
 
@@ -28,16 +28,12 @@ def run():
         core.quit()  # user pressed cancel
     expInfo['date'] = data.getDateStr()  # add a simple timestamp
     expInfo['expName'] = expName
-    #print(f"#################################{expInfo}") 
+    #print(f"#################################{expInfo}")
 
     #########################Saving Data File Info########################
 
     save_filename = f"{_thisDir}/data/{expInfo['participant']}_{expInfo['date']}_behav"
-    save_foodtask = f"{_thisDir}/data/{expInfo['participant']}_{expInfo['date']}_foodtask"
     save_output = f"{_thisDir}/data/{expInfo['participant']}_{expInfo['date']}_choiceoutput"
-    save_health = f"{_thisDir}/data/{expInfo['participant']}_{expInfo['date']}_health"
-    save_taste = f"{_thisDir}/data/{expInfo['participant']}_{expInfo['date']}_taste"
-    save_choice = f"{_thisDir}/data/{expInfo['participant']}_{expInfo['date']}_choice"
 
     logFile = logging.LogFile(save_filename+'.log', level=logging.DEBUG)
     logging.console.setLevel(logging.WARNING)  # this outputs to the screen, not a file
@@ -211,43 +207,6 @@ def run():
 
     with open(f"{save_output}.txt" , 'a') as f:
         f.write(f"Reference Food: {ref_food}")
-
-    ###########################Saving Logging Files####################
-    hList['food'] = hList['food'].apply(get_food_name)
-    tList['food'] = tList['food'].apply(get_food_name)
-    cList['food'] = cList['food'].apply(get_food_name)
-    oList = pd.read_csv(f"{save_filename}.csv")
-    hmerged = hList.merge(oList, left_on="food", right_on="food_item")
-    tmerged = tList.merge(oList, left_on="food", right_on="food_item")
-    cmerged = cList.merge(oList, left_on="food", right_on="food_item", how="outer")
-
-    health = hmerged[["Unnamed: 0", "fat_x", "himage_onset", "h_rt", "health_rating", "available_x", "food"]].copy()
-    health.columns = ["t", "fat", "trialonset", "rt", "resp", "available", "food"]
-    health["t"] = health["t"] + 1
-    
-    taste = tmerged[["Unnamed: 0", "fat_x", "timage_onset", "t_rt", "taste_rating", "available_x", "food"]].copy()
-    taste.columns = ["t", "fat", "trialonset", "rt", "resp", "available", "food"]
-    taste["t"] = taste["t"] + 1
-    
-    choice = cmerged[["Unnamed: 0", "fat_y", "cimage_onset", "c_rt", "choice_rating", "available_y", "food_item"]].copy()
-    choice.columns = ["t", "fat", "trialonset", "rt", "resp", "available", "food"]
-    choice["t"] = choice["t"] + 1
-    dummy = choice[choice["food"] == "yellow rice_beans"].index[0]
-    choice.at[dummy, "t"] = choice[choice["resp"].isna()]["t"]
-    choice.dropna(subset=["resp"], inplace=True)
-    choice = choice.sort_values("t")
-    choice.fillna('')
-    
-    health.to_csv(f"{save_health}.csv", index=False)
-    taste.to_csv(f"{save_taste}.csv", index=False)
-    choice.to_csv(f"{save_choice}.csv", index=False)
-
-
-    with open(f"{save_foodtask}.log", "w") as f:
-        print("this is health\n" + health.to_string(index=False) +
-            "\nthis is taste\n" + taste.to_string(index=False) +
-            "\nthis is choice\n" + choice.to_string(index=False), file=f)
-
 
     #cleanup
     win.close()
