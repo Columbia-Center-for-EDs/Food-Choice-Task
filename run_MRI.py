@@ -1,3 +1,0 @@
-import FCT_MRI_2022
-
-FCT_MRI_2022.run()
