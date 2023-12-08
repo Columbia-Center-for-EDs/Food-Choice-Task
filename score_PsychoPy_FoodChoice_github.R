@@ -22,62 +22,29 @@ my_folder <-  setwd("")
 
 ## import Health
 
-# here changed file name the program is looking for since they are named differently
-
 # NB: add or remove info from the wildcard that calls folder name to restrict file to import
 files <- list.files()
 fname <- Sys.glob(sprintf('%s/*/*behav.csv',my_folder))  
-#dataList <- lapply(fname, read.table, header= TRUE, sep =",")
 
 Lapply <- lapply(fname, read.table, header=TRUE, sep=",")
 
 temp <-do.call('rbind.fill', Lapply)
 
-# only grab some columns and rename in prep to combine with taste and choice
-#CL: all data are in behavioral file
-
-# Calkins data: health <- temp_health %>% select(2, 7,9,11,19,20)
-# NYSPI data: health <- temp_health %>% select(8, 12,13,11,19,20)
 output <- temp %>% dplyr::select(c('SubID','food_item', 'health_rating','h_rt', 'taste_rating','t_rt','choice_rating','c_rt','condition','rating_reversed', 'fat', 'ref_food'))
 
-##No need to import separate files or merge since all in one behavioral file
-
-## No need to import fat info
-
-# Ref item is in the output no no need for the below code
-# refs<-filter(remote_BFC,food == "sour patch.jpg") # or choose another food that is not someone's reference food
-# # Calkins data: refs <- refs %>% select(2,13)
-# # NYSPI data: refs <- refs %>% select(2,14)
-# #refs <- refs %>% select(c('SubID','referenceItem'))
 refs <- temp %>% dplyr::select(c('SubID','ref_food','date')) 
 refs <- refs[1,]
-# #write.csv(refs, file= "refs.csv") # is this necessary?
-# 
-# 
-# # make a file with Health and Taste to get the rating of reference item (it is omitted from Choice files)
-# remote_BFC_healthtaste <- merge(health, taste,by=c("SubID", "food"))
-# remote_BFC_healthtaste <- merge(remote_BFC_healthtaste,fat_info,by=c("food"))
-# remote_BFC_healthtaste <- merge(remote_BFC_healthtaste,refs,by=c("SubID"))
-#write.csv(T3_healthtaste, file= "T3_healthtaste_2021-05-07.csv") # does this file need saving? 
 
 ref_ratings_sub<-output$SubID[1]
 ref_ratings_h<- output$health_rating[output$food==output$ref_food][1]
 ref_ratings_t<- output$taste_rating[output$food==output$ref_food][1]
 ref_info <- data.frame(SubID = ref_ratings_sub, ref_h = ref_ratings_h, ref_t = ref_ratings_t)
-#write.table(ref_info, file="ref_rating.csv", sep=",", row.names=FALSE, col.names=TRUE) # does this file need saving? 
-# remote_BFC <- merge(remote_BFC,ref_info,by=c("SubID"))
-
-
 
 ######## PROCESS for SUMMARY #############
 # recode some things; rename ratings and reverse scoring if needed
 
 output$fat.e <- ifelse(output$fat==1,1,-1)
 
-#No need to recode since this is done at the front end (in task script)
-# output$healthrating <- ifelse(output$health_maxRating == 'Healthy',output$healthrating,6-output$healthrating)
-# output$tasterating <- ifelse(output$taste_maxRating == 'Good',output$tasterating,6-output$tasterating)
-# # also code response order?
 output$order_h <- ifelse(output$rating_reversed == 0,1,2)
 output$order_t <- ifelse(output$rating_reversed == 0,1,2)
 
@@ -139,7 +106,7 @@ colnames(output_summary)[colnames(output_summary)      # Rename variables (chang
                           "cprop_hi", "cneu_lo", "cneu_hi", "ref", "date", "ref_h", "ref_t")
 
 
-# *** REORDER COLUMNS to (approx) standard output (drop some columns) ***
+# *** REORDER COLUMNS to standard output (drop some columns) ***
 output_summary <- output_summary[, c("SubId", "date", "ref",  "ref_h", "ref_t", "re_ord_h", "re_ord_t", 
                                               "h_lo", "h_hi", "t_lo", "t_hi", "c_lo", "c_hi", 
                                               "cneu_lo", "cneu_hi", "cho_noneut_lo", "cho_noneut_hi", 
@@ -147,7 +114,7 @@ output_summary <- output_summary[, c("SubId", "date", "ref",  "ref_h", "ref_t", 
                                               "h_lo_RT", "h_hi_RT", "t_lo_RT", "t_hi_RT", "ch_lo_RT", "c_hi_RT")]
 
 # save a completed file - *** now automatically saves with today's date ***
-write.csv(output_summary, file= sprintf('FoodChoice_SUMMARY_%s.csv',Sys.Date()))
+write.csv(output_summary, file= sprintf('FoodChoice_PsychoPy_SUMMARY_%s.csv',Sys.Date()))
 
 # save the trial-wise data
-write.csv(output, file= sprintf('FoodChoice_TRIALBYTRIAL_%s.csv',Sys.Date()))
+write.csv(output, file= sprintf('FoodChoice_PsychoPy_TRIALBYTRIAL_%s.csv',Sys.Date()))
