@@ -13,4 +13,8 @@ Steinglass, J., Foerde, K., Kostro, K., Shohamy, D., & Walsh, B. T. (2015). Rest
 
 Foerde, K., Steinglass, J. E., Shohamy, D., & Walsh, B. T. (2015). Neural mechanisms supporting maladaptive food choices in anorexia nervosa. Nature neuroscience, 18(11), 1571-1573.
 
+## Stay updated
+This task is periodically updated. To stay up to date with version changes and new features, please fill out the google form here:
+https://docs.google.com/forms/d/e/1FAIpQLSdZQjEhAygejRzn60SAxdR0UMkRvoGh4ZjWBTfpGds87js0wQ/viewform?usp=sf_link
+
 
