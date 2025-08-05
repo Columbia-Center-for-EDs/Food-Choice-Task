@@ -29,6 +29,7 @@ def run():
                    't_list': ['Test', 'Test1', 'Test2', 'foodlist1','foodlist2','foodlist3','foodlist4','foodlist5', 'foodlist6'],
                    'c_list': ['Test', 'Test1', 'Test2', 'foodlist1','foodlist2','foodlist3','foodlist4','foodlist5', 'foodlist6'],
                    'time point (enter number only)': '',
+                   'NYSPI admission number (enter number only)': '',
                    'excluded reference food': '',
                    'backup reference food': ['saltines', 'other'],
                    'if "other", please specify': ''}
@@ -54,7 +55,25 @@ def run():
             time_pt = 'T' + str(time_pt_val)
         else:
             print("missing time point value")
-
+            
+     # validate input for admission point
+        admit_str = expInfo['EDRU admission number (enter number only)']
+        admit_val = None
+        try:
+            admit_val = int(time_pt_str)
+        except ValueError:
+            print()
+            error_msg = "Please only enter a number for the admission number (eg. 1, 2...)"
+            error_dlg = gui.Dlg(title="Error")
+            error_dlg.addText(error_msg)
+            error_dlg.show()
+            if error_dlg.OK:
+                continue       
+        if admit_val is not None:
+            admit_pt = 'Admit' + str(admit_val)
+        else:
+            print("missing EDRU admission number value")
+        
         # validate input for excluding reference food
         foodlist = constants.FOODLIST
         excluded_ref = expInfo['excluded reference food']
@@ -121,19 +140,19 @@ def run():
     rating_reversed = 0 if condition == 1 else 1
 
     #########################Saving Data File Info########################
-    save_all = f"{_thisDir}/data/{expInfo['participant']}_{time_pt}_{expInfo['date']}_all"
-    save_filename = f"{_thisDir}/data/{expInfo['participant']}_{time_pt}_{expInfo['date']}_behav"
-    save_choice_output = f"{_thisDir}/data/{expInfo['participant']}_{time_pt}_{expInfo['date']}_choiceoutput"
-    save_health = f"{_thisDir}/data/{expInfo['participant']}_{time_pt}_{expInfo['date']}_health"
-    save_taste = f"{_thisDir}/data/{expInfo['participant']}_{time_pt}_{expInfo['date']}_taste"
-    save_choice = f"{_thisDir}/data/{expInfo['participant']}_{time_pt}_{expInfo['date']}_choice"
-    save_foodtask = f"{_thisDir}/data/{expInfo['participant']}_{time_pt}_{expInfo['date']}_foodtask"
+    save_all = f"{_thisDir}/data/{expInfo['participant']}_{time_pt}_{admit_pt}_{expInfo['date']}_all"
+    save_filename = f"{_thisDir}/data/{expInfo['participant']}_{time_pt}_{admit_pt}_{expInfo['date']}_behav"
+    save_choice_output = f"{_thisDir}/data/{expInfo['participant']}_{time_pt}_{admit_pt}_{expInfo['date']}_choiceoutput"
+    save_health = f"{_thisDir}/data/{expInfo['participant']}_{time_pt}_{admit_pt}_{expInfo['date']}_health"
+    save_taste = f"{_thisDir}/data/{expInfo['participant']}_{time_pt}_{admit_pt}_{expInfo['date']}_taste"
+    save_choice = f"{_thisDir}/data/{expInfo['participant']}_{time_pt}_{admit_pt}_{expInfo['date']}_choice"
+    save_foodtask = f"{_thisDir}/data/{expInfo['participant']}_{time_pt}_{admit_pt}_{expInfo['date']}_foodtask"
 
     logFile = logging.LogFile(save_filename+'.log', level=logging.DEBUG)
     logging.console.setLevel(logging.WARNING)  # this outputs to the screen, not a file
 
     output = []
-    columns = ['food_item', 'SubID', 'time point', 'date', 'ref_food', 'condition',
+    columns = ['food_item', 'SubID', 'time point','admit_number', 'date', 'ref_food', 'condition',
                'health_recorded_response', 'h_rt', 'health_rating', 'himage_onset',
                'taste_recorded_response', 't_rt', 'taste_rating', 'timage_onset',
                'choice_rating', 'c_rt', 'cimage_onset',
@@ -155,7 +174,7 @@ def run():
 
     def read_file():
         # read from existing health and taste rating file
-        pattern = f"{_thisDir}/data/{expInfo['participant']}_{time_pt}_*_all.csv"
+        pattern = f"{_thisDir}/data/{expInfo['participant']}_{time_pt}_{admit_pt}_*_all.csv"
         # check if we found any files with the pattern
         matching_files = glob.glob(pattern)
         if matching_files:
@@ -320,6 +339,7 @@ def run():
                 'hilo': food['hilo'],
                 'SubID': expInfo['participant'],
                 'time point': time_pt,
+                'admit_number':admit_pt,
                 'date': expInfo['date'][0:10],
                 'condition': condition,
                 'rating_reversed': rating_reversed
@@ -346,6 +366,7 @@ def run():
                     'hilo': food['hilo'],
                     'SubID': expInfo['participant'],
                     'time point': time_pt,
+                     'admit_number':admit_pt,
                     'date': expInfo['date'][0:10],
                     'condition': condition,
                     'rating_reversed': rating_reversed
@@ -373,6 +394,7 @@ def run():
                     'hilo': food['hilo'],
                     'SubID': expInfo['participant'],
                     'time point': time_pt,
+                     'admit_number':admit_pt,
                     'date': expInfo['date'][0:10],
                     'condition': condition,
                     'rating_reversed': rating_reversed
