@@ -171,7 +171,7 @@ def run():
 
     def read_file():
         # read from existing health and taste rating file
-        pattern = f"{_thisDir}/data/{expInfo['participant']}_{time_pt}_*_all.csv"
+        pattern = f"{_thisDir}/data/{expInfo['participant']}_{time_pt}_{admit_pt}*_all.csv"
         # check if we found any files with the pattern
         matching_files = glob.glob(pattern)
         if matching_files:
