@@ -29,7 +29,7 @@ def run():
                    't_list': ['Test', 'Test1', 'Test2', 'foodlist1','foodlist2','foodlist3','foodlist4','foodlist5', 'foodlist6'],
                    'c_list': ['Test', 'Test1', 'Test2', 'foodlist1','foodlist2','foodlist3','foodlist4','foodlist5', 'foodlist6'],
                    'time point (enter number only)': '',
-                   'NYSPI admission number (enter number only)': '',
+                   'EDRU admission number (enter number only)': '',
                    'excluded reference food': '',
                    'backup reference food': ['saltines', 'other'],
                    'if "other", please specify': ''}
